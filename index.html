@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <link rel="icon" type="image/svg+xml" href="/ia/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>neria-website</title>
+
+    <!-- Polyfill mínimo para que el bundle del chatbot no reviente con `process` -->
+    <script>
+      window.process = window.process || {};
+      window.process.env = window.process.env || {};
+      // IMPORTANTE: no forzamos "production" para que React/DevTools no muestren el error de DCE
+      window.process.env.NODE_ENV =
+        window.process.env.NODE_ENV || "development";
+    </script>
+
+    <!-- Bundle del chatbot generado por ia-frontend (copiado a public/chatbot/index.js) -->
+    <!-- Sólo registra window.ChatbotWidget, no monta nada por sí mismo -->
+    <script src="/chatbot/index.js"></script>
+    <script src="https://www.webentorn.com/chatbot/index.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- App React de la host -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

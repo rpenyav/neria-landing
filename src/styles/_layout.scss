@@ -1,0 +1,118 @@
+.neria-app {
+  background-color: $body-bg;
+  color: $body-color;
+}
+
+.neria-navbar-wrapper .navbar {
+  backdrop-filter: blur(12px);
+}
+
+.neria-logo-symbol {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  background: radial-gradient(circle at 0 0, $neria-accent, $neria-primary);
+  display: inline-block;
+}
+
+.hero-section {
+  background: radial-gradient(120% 150% at 0% 0%, $neria-primary-soft, #ffffff);
+}
+
+.hero-title {
+  letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+  max-width: 40rem;
+}
+
+.hero-card {
+  border-radius: 1.5rem;
+}
+
+.hero-chat-window {
+  border-radius: 1rem;
+  background: #0b1120;
+  color: #e5e7eb;
+  padding: 1.25rem;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.hero-message {
+  font-size: 0.9rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.hero-message-user {
+  background: rgba(255, 255, 255, 0.05);
+  align-self: flex-end;
+}
+
+.hero-message-bot {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.hero-message-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 0.1rem;
+}
+
+.hero-status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.25);
+}
+
+.section-wrapper {
+  scroll-margin-top: 72px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle,
+.section-text {
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+.feature-card,
+.usecase-card,
+.step-card,
+.pricing-card {
+  background-color: #ffffff;
+  border-radius: 1.25rem;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: $neria-primary-soft;
+  color: $neria-primary;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.neria-footer {
+  background-color: #f9fafb;
+}
+
+.text-light-50 {
+  color: rgba(249, 250, 251, 0.7);
+}
