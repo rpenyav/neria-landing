@@ -12,6 +12,7 @@ export const CTAContact: FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [captchaError, setCaptchaError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const captchaContainerRef = useRef<HTMLDivElement | null>(null);
   const captchaWidgetIdRef = useRef<number | null>(null);
@@ -71,9 +72,11 @@ export const CTAContact: FC = () => {
     };
   }, [siteKey]);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrorMessage(null);
 
+    // Validación de captcha en frontend
     if (siteKey) {
       const grecaptcha = window.grecaptcha;
       if (!grecaptcha || typeof grecaptcha.getResponse !== "function") {
@@ -97,13 +100,54 @@ export const CTAContact: FC = () => {
       }
     }
 
-    // Aquí podrías llamar a tu backend / email service
     setSubmitting(true);
 
-    setTimeout(() => {
-      setSubmitting(false);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      name: (formData.get("name") as string) ?? "",
+      email: (formData.get("email") as string) ?? "",
+      company: (formData.get("company") as string) ?? "",
+      message: (formData.get("message") as string) ?? "",
+    };
+
+    try {
+      const baseUrl = import.meta.env.VITE_API_URL as string | undefined;
+      const url = baseUrl
+        ? `${baseUrl.replace(/\/$/, "")}/contact`
+        : "/contact";
+
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        let backendMsg = "";
+        try {
+          backendMsg = await res.text();
+        } catch {
+          // noop
+        }
+        throw new Error(
+          backendMsg || `Error al enviar el formulario (código ${res.status})`
+        );
+      }
+
       setSubmitted(true);
-    }, 300);
+      form.reset();
+    } catch (err) {
+      console.error("Error enviando formulario de contacto", err);
+      setErrorMessage(
+        "No se ha podido enviar el formulario. Inténtalo de nuevo en unos minutos."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -125,8 +169,8 @@ export const CTAContact: FC = () => {
               <div className="alert alert-success mb-0 rounded-4">
                 <h3 className="h5 mb-1">¡Gracias por tu interés!</h3>
                 <p className="mb-0 small">
-                  Esta es una demo estática. En la versión real enviaremos tu
-                  solicitud directamente al equipo de NERIA.
+                  Hemos recibido tu solicitud y nos pondremos en contacto
+                  contigo para hablar sobre NERIA.
                 </p>
               </div>
             ) : (
@@ -207,10 +251,15 @@ export const CTAContact: FC = () => {
                 >
                   {submitting ? "Enviando..." : "Solicitar contacto"}
                 </button>
+
                 <p className="small text-muted mt-2 mb-0">
                   Al enviar este formulario aceptas que te contactemos
                   únicamente para hablar sobre NERIA. Sin spam.
                 </p>
+
+                {errorMessage && (
+                  <p className="text-danger small mt-2 mb-0">{errorMessage}</p>
+                )}
               </form>
             )}
           </div>
