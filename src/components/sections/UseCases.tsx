@@ -16,6 +16,10 @@ const USE_CASES = [
     description:
       "Acceso guiado a bases de conocimiento jurídicas, plantillas y criterios internos, manteniendo trazabilidad.",
   },
+  {
+    title: "Búsqueda y recomendación de productos",
+    description: "Encontrar, comparar y cotejar productos.",
+  },
 ];
 
 export const UseCases: FC = () => {

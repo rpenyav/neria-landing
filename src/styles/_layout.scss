@@ -16,7 +16,25 @@
 }
 
 .hero-section {
-  background: radial-gradient(120% 150% at 0% 0%, $neria-primary-soft, #ffffff);
+  position: relative;
+  // el gradient ahora como overlay suave
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      120% 150% at 0% 0%,
+      $neria-primary-soft,
+      rgba(0, 0, 0, 0.6)
+    );
+    pointer-events: none;
+  }
+
+  // para que el contenido quede encima del overlay
+  > .container {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .hero-title {
@@ -115,4 +133,22 @@
 
 .text-light-50 {
   color: rgba(249, 250, 251, 0.7);
+}
+
+@media (max-width: 514px) {
+  .ia-chatbot-panel {
+    right: 8px;
+    bottom: 36px; // 24px (margen) + 64px (bubble) + 8px (gap)
+
+    width: calc(100vw - 16px);
+
+    // que no se coma toda la pantalla en alto
+    height: calc(100vh - 80px) !important;
+    max-height: none;
+  }
+}
+
+.bg-light-2 {
+  background-color: rgb(0, 132, 190);
+  color: #ffffff;
 }

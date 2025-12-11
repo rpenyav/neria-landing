@@ -7,7 +7,7 @@ import { Intro } from "./components/sections/Intro";
 import { Features } from "./components/sections/Features";
 import { HowItWorks } from "./components/sections/HowItWorks";
 import { UseCases } from "./components/sections/UseCases";
-import { Pricing } from "./components/sections/Pricing";
+// import { Pricing } from "./components/sections/Pricing";
 import { CTAContact } from "./components/sections/CTAContact";
 import { FAQ } from "./components/sections/FAQ";
 import { ChatbotFloatingAddon } from "./components/ChatbotFloatingAddon";
@@ -38,9 +38,9 @@ const App: FC = () => {
           <UseCases />
         </section>
 
-        <section id="pricing">
+        {/* <section id="pricing">
           <Pricing />
-        </section>
+        </section> */}
 
         <section id="contact">
           <CTAContact />

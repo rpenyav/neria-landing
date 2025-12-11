@@ -56,14 +56,14 @@ export const Navbar: FC = () => {
                   Casos de uso
                 </button>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <button
                   className="btn btn-link nav-link"
                   onClick={() => handleNavClick("pricing")}
                 >
                   Precios
                 </button>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <button
                   className="btn btn-link nav-link"
@@ -81,7 +81,7 @@ export const Navbar: FC = () => {
               >
                 Solicitar demo
               </button>
-              <button className="btn btn-primary">Entrar a NERIA</button>
+              {/* <button className="btn btn-primary">Entrar a NERIA</button> */}
             </div>
           </div>
         </div>

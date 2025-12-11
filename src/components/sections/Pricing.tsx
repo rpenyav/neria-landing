@@ -4,7 +4,7 @@ export const Pricing: FC = () => {
   return (
     <div className="section-wrapper py-5">
       <div className="container">
-        <h2 className="section-title mb-3">Planes de despliegue</h2>
+        <h2 className="section-title mb-3">Planes implementación</h2>
         <p className="section-subtitle mb-5">
           Adaptamos NERIA al tamaño de tu organización y a tus canales
           preferidos.

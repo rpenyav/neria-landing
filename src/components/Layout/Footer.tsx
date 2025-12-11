@@ -15,15 +15,18 @@ export const Footer: FC = () => {
             </div>
             <p className="text-muted small mb-0 mt-1">
               © {year} Automatización de atención con IA.
+              <a className="ms-3" href="https://webentorn.com" target="_blank">
+                Webentorn.com
+              </a>
             </p>
           </div>
           <div className="col-md-6 d-flex justify-content-md-end gap-3 small">
             <a href="#hero" className="text-muted">
               Inicio
             </a>
-            <a href="#pricing" className="text-muted">
+            {/* <a href="#pricing" className="text-muted">
               Precios
-            </a>
+            </a> */}
             <a href="#contact" className="text-muted">
               Contacto
             </a>

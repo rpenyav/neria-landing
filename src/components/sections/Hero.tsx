@@ -1,6 +1,7 @@
 // src/components/sections/Hero.tsx
 import type { FC } from "react";
 import heroImage from "../../assets/neria-capture.png";
+import heroBackground from "../../assets/backg.jpeg";
 
 export const Hero: FC = () => {
   const scrollTo = (id: string) => {
@@ -13,7 +14,15 @@ export const Hero: FC = () => {
   const handleScrollToContact = () => scrollTo("contact");
 
   return (
-    <div className="hero-section py-5 py-lg-6">
+    <div
+      className="hero-section py-5 py-lg-6"
+      style={{
+        backgroundImage: `url(${heroBackground})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="container">
         <div className="row align-items-center gy-5">
           {/* Columna texto */}
@@ -34,7 +43,7 @@ export const Hero: FC = () => {
                 className="btn btn-primary btn-lg"
                 onClick={handleScrollToContact}
               >
-                Solicitar demo personalizada
+                Solicitar demo
               </button>
               <button
                 className="btn btn-outline-light btn-lg"

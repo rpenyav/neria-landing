@@ -5,16 +5,16 @@ export const HowItWorks: FC = () => {
     <div className="section-wrapper bg-dark py-5">
       <div className="container">
         <h2 className="section-title text-light mb-4">
-          Cómo funciona el despliegue
+          Infraestructura flexible
         </h2>
         <div className="row gy-4">
           <div className="col-md-4">
             <div className="step-card h-100 p-4 rounded-4">
               <span className="step-number">1</span>
-              <h3 className="h5 mt-3">Descubrimiento</h3>
+              <h3 className="h5 mt-3">Servidores cloud</h3>
               <p className="text-muted mb-0">
-                Analizamos casos de uso, volumen de consultas y sistemas
-                existentes para definir el alcance del chatbot.
+                Soporte para almacenamiento en S3 (AWS, MinIO o compatibles)
+                para logs, adjuntos o contenidos generados.
               </p>
             </div>
           </div>
@@ -22,10 +22,10 @@ export const HowItWorks: FC = () => {
           <div className="col-md-4">
             <div className="step-card h-100 p-4 rounded-4">
               <span className="step-number">2</span>
-              <h3 className="h5 mt-3">Entrenamiento e integración</h3>
+              <h3 className="h5 mt-3">Integración</h3>
               <p className="text-muted mb-0">
-                Conectamos tus fuentes de información, diseñamos flujos
-                conversacionales y configuramos la seguridad y el acceso.
+                Integración con entornos CI/CD DevOps (GitHub Actions, GitLab
+                CI, Azure DevOps) para despliegues automatizados.
               </p>
             </div>
           </div>
@@ -33,10 +33,10 @@ export const HowItWorks: FC = () => {
           <div className="col-md-4">
             <div className="step-card h-100 p-4 rounded-4">
               <span className="step-number">3</span>
-              <h3 className="h5 mt-3">Piloto y escalado</h3>
+              <h3 className="h5 mt-3">Google y agentes de monitorización</h3>
               <p className="text-muted mb-0">
-                Lanzamos un piloto controlado, medimos resultados y ajustamos el
-                modelo antes de escalar a toda la organización.
+                Trabajamos también con Google Cloud, tanto para orquestación
+                como para servicios gestionados.
               </p>
             </div>
           </div>
